@@ -27,7 +27,6 @@
 <script lang="ts">
 import store from "@/store";
 import { mapGetters } from "vuex";
-import { User } from "@/types";
 
 export default {
   name: "SecondPage",
