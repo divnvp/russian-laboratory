@@ -37,6 +37,10 @@ export default {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
 }
 
+.card:hover {
+  background-color: lightgray;
+}
+
 .card__main {
   display: flex;
   flex-direction: column;
