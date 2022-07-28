@@ -11,19 +11,19 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: "/first",
-    name: "First",
-    component: () => import("../views/FirstPage.vue"),
+    path: "/users",
+    name: "users",
+    component: () => import("../views/UsersPage.vue"),
   },
   {
-    path: "/second",
-    name: "Second",
-    component: () => import("../views/SecondPage.vue"),
+    path: "/posts",
+    name: "posts",
+    component: () => import("../views/PostsPage.vue"),
   },
   {
-    path: "/third",
-    name: "Third",
-    component: () => import("../views/ThirdPage.vue"),
+    path: "/albums",
+    name: "albums",
+    component: () => import("../views/AlbumsPage.vue"),
   },
 ];
 
