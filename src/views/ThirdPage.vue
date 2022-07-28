@@ -1,38 +1,41 @@
 <template>
-  <div>
-    <h1>3</h1>
-    <button @click="$router.push('/')">Назад</button>
+  <PageComponent :back-click="goToBack" :next-click="goToNext" page-number="3">
+    <template #main>
+      <table>
+        <thead>
+          <tr>
+            <td>User ID</td>
+            <td>ID</td>
+            <td>title</td>
+          </tr>
+        </thead>
 
-    <table>
-      <thead>
-        <tr>
-          <td>User ID</td>
-          <td>ID</td>
-          <td>title</td>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr v-for="album in $store.state.albums" :key="album.id">
-          <td>
-            {{ album.userId }} ({{
-              $store.getters.findUser(album.userId).name
-            }})
-          </td>
-          <td>{{ album.id }}</td>
-          <td>{{ album.title }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <tbody>
+          <tr v-for="album in $store.state.albums" :key="album.id">
+            <td>
+              {{ album.userId }} ({{
+                $store.getters.findUser(album.userId).name
+              }})
+            </td>
+            <td>{{ album.id }}</td>
+            <td>{{ album.title }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+  </PageComponent>
 </template>
 
 <script lang="ts">
 import { mapGetters } from "vuex";
 import store from "@/store";
+import PageComponent from "@/components/PageComponent.vue";
+import router from "@/router";
 
 export default {
   name: "SecondPage",
+
+  components: { PageComponent },
 
   computed: {
     ...mapGetters(["findUser"]),
@@ -41,6 +44,16 @@ export default {
   mounted() {
     store.dispatch("getUsers");
     store.dispatch("getAlbums");
+  },
+
+  methods: {
+    goToBack(): void {
+      router.push("/second");
+    },
+
+    goToNext(): void {
+      router.push("/");
+    },
   },
 };
 </script>

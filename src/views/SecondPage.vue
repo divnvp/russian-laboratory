@@ -1,36 +1,37 @@
 <template>
-  <div>
-    <h1>2</h1>
-    <button @click="$router.push('/')">Назад</button>
+  <PageComponent :back-click="goToBack" :next-click="goToNext" page-number="2">
+    <template #main>
+      <table>
+        <tbody>
+          <tr v-for="post in $store.state.posts" :key="post.id">
+            <td>
+              <h4>
+                UserID: {{ post.userId }} (
+                {{ $store.getters.findUser(post.userId).name }})
+              </h4>
 
-    <table>
-      <tbody>
-        <tr v-for="post in $store.state.posts" :key="post.id">
-          <td>
-            <h4>
-              UserID: {{ post.userId }} (
-              {{ $store.getters.findUser(post.userId).name }})
-            </h4>
-
-            <span>ID: {{ post.id }}</span>
-          </td>
-          <td>
-            <h5>TITLE: {{ post.title }}</h5>
-            <span>BODY: {{ post.body }}</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+              <span>ID: {{ post.id }}</span>
+            </td>
+            <td>
+              <h5>TITLE: {{ post.title }}</h5>
+              <span>BODY: {{ post.body }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+  </PageComponent>
 </template>
 
 <script lang="ts">
 import store from "@/store";
 import { mapGetters } from "vuex";
+import PageComponent from "@/components/PageComponent.vue";
+import router from "@/router";
 
 export default {
   name: "SecondPage",
-
+  components: { PageComponent },
   computed: {
     ...mapGetters(["findUser"]),
   },
@@ -39,5 +40,24 @@ export default {
     store.dispatch("getUsers");
     store.dispatch("getPosts");
   },
+
+  methods: {
+    goToBack(): void {
+      router.push("/first");
+    },
+
+    goToNext(): void {
+      router.push("/third");
+    },
+  },
 };
 </script>
+
+<style scoped>
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>
