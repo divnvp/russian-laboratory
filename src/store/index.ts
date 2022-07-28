@@ -16,7 +16,7 @@ const store: StoreOptions<RootState> = {
   },
 
   getters: {
-    findUser: (state: RootState) => (userId: number) => {
+    findUser: (state) => (userId: number) => {
       return state.users.find((user: User) => user.id === userId);
     },
   },
