@@ -34,4 +34,19 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+header button {
+  border: none;
+  width: 100px;
+  height: 50px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+header button:hover {
+  color: white;
+  background-color: gray;
+}
 </style>

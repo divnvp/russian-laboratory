@@ -4,9 +4,9 @@
       <table>
         <thead>
           <tr>
-            <td>User ID</td>
-            <td>ID</td>
-            <td>title</td>
+            <th>User ID</th>
+            <th>ID</th>
+            <th>title</th>
           </tr>
         </thead>
 
