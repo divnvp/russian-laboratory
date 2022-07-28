@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="$router.push('/first')">1</button>
-    <button @click="$router.push('/second')">2</button>
-    <button @click="$router.push('/third')">3</button>
+    <button @click="$router.push('/users')">1</button>
+    <button @click="$router.push('/posts')">2</button>
+    <button @click="$router.push('/albums')">3</button>
   </div>
 </template>
 
