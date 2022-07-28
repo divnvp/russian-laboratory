@@ -1,8 +1,8 @@
 <template>
-  <div style="font-size: 18px">
-    <router-link to="/first" style="margin-right: 10px"> 1 </router-link>
-    <router-link to="/second" style="margin-right: 10px">2</router-link>
-    <router-link to="/third">3</router-link>
+  <div>
+    <button @click="$router.push('/first')">1</button>
+    <button @click="$router.push('/second')">2</button>
+    <button @click="$router.push('/third')">3</button>
   </div>
 </template>
 
@@ -13,3 +13,24 @@ export default Vue.extend({
   name: "HomeComponent",
 });
 </script>
+
+<style scoped>
+button {
+  margin-right: 20px;
+
+  width: 100px;
+  height: 100px;
+
+  cursor: pointer;
+
+  border: none;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: gray;
+  color: white;
+}
+</style>
