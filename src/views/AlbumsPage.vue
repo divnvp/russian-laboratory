@@ -33,7 +33,7 @@ import PageComponent from "@/components/PageComponent.vue";
 import router from "@/router";
 
 export default {
-  name: "SecondPage",
+  name: "AlbumsPage",
 
   components: { PageComponent },
 
@@ -48,7 +48,7 @@ export default {
 
   methods: {
     goToBack(): void {
-      router.push("/second");
+      router.push("/posts");
     },
 
     goToNext(): void {

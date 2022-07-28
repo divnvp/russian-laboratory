@@ -30,7 +30,7 @@ import PageComponent from "@/components/PageComponent.vue";
 import router from "@/router";
 
 export default {
-  name: "SecondPage",
+  name: "PostsPage",
   components: { PageComponent },
   computed: {
     ...mapGetters(["findUser"]),
@@ -43,11 +43,11 @@ export default {
 
   methods: {
     goToBack(): void {
-      router.push("/first");
+      router.push("/users");
     },
 
     goToNext(): void {
-      router.push("/third");
+      router.push("/albums");
     },
   },
 };

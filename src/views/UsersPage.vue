@@ -16,7 +16,7 @@ import PageComponent from "@/components/PageComponent.vue";
 import UserCard from "@/components/UserCard.vue";
 
 export default {
-  name: "FirstPage",
+  name: "UsersPage",
 
   components: { UserCard, PageComponent },
 
@@ -30,7 +30,7 @@ export default {
     },
 
     goToNext(): void {
-      router.push("/second");
+      router.push("/posts");
     },
   },
 };
