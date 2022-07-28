@@ -1,7 +1,7 @@
 <template>
   <PageComponent :back-click="goToBack" :next-click="goToNext" page-number="1">
     <template #main>
-      <div v-for="user in $store.state.users" :key="user.id" class="card">
+      <div v-for="user in $store.state.users" :key="user.id">
         <UserCard :user="user" />
       </div>
     </template>
@@ -35,23 +35,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 10px;
-}
-</style>
