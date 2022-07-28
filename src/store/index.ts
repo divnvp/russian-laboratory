@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Vuex, { StoreOptions } from "vuex";
+import Vuex, { Commit, StoreOptions } from "vuex";
 
 import { Album, Post, RootState, User } from "@/types";
 
@@ -22,24 +22,24 @@ const store: StoreOptions<RootState> = {
   },
 
   mutations: {
-    getUsers(state, payload: User[]): void {
+    getUsers(state: RootState, payload: User[]): void {
       state.users = payload;
     },
 
-    getPosts(state, payload: Post[]): void {
+    getPosts(state: RootState, payload: Post[]): void {
       state.posts = payload;
     },
 
-    getAlbums(state, payload: Album[]): void {
+    getAlbums(state: RootState, payload: Album[]): void {
       state.albums = payload;
     },
   },
 
   actions: {
-    getUsers({ commit, state }): void {
+    getUsers({ commit, state }: { commit: Commit; state: RootState }): void {
       fetch(state.baseUrl + "/users").then(async (response) => {
         if (response.ok) {
-          const payload: User = await response.json();
+          const payload: User[] = await response.json();
           commit("getUsers", payload);
         } else {
           throw new Error(response.statusText);
@@ -47,10 +47,10 @@ const store: StoreOptions<RootState> = {
       });
     },
 
-    getPosts({ commit, state }): void {
+    getPosts({ commit, state }: { commit: Commit; state: RootState }): void {
       fetch(state.baseUrl + "/posts").then(async (response) => {
         if (response.ok) {
-          const payload: Post = await response.json();
+          const payload: Post[] = await response.json();
           commit("getPosts", payload);
         } else {
           throw new Error(response.statusText);
@@ -58,10 +58,10 @@ const store: StoreOptions<RootState> = {
       });
     },
 
-    getAlbums({ commit, state }): void {
+    getAlbums({ commit, state }: { commit: Commit; state: RootState }): void {
       fetch(state.baseUrl + "/albums").then(async (response) => {
         if (response.ok) {
-          const payload: Post = await response.json();
+          const payload: Album[] = await response.json();
           commit("getAlbums", payload);
         } else {
           throw new Error(response.statusText);
